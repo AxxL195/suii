@@ -1,0 +1,682 @@
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+ 1.  Write a user define function in C to print all unique elements in an array.
+*/
+
+#include <stdio.h>
+void uniq(int a[],int b);
+int main() 
+{
+    int a[100],n,i=0;
+    printf("\t\t**********INPUT**********\n");
+    printf("Input The Number Of Elements To Be Stored In Array:");
+    scanf("%d",&n);
+    printf("Input %d Elemnts In Array\n",n);
+    for(i=0;i<n;i++)
+    {
+       printf("element - %d :",(i+1));
+       scanf("%d",&a[i]);
+    }
+    uniq(a,n);
+    return 0;
+}
+void uniq(int a[],int n)
+{
+    int i,j,b[n],f=0,k=0;
+    for(i=0;i<n;i++)
+    {
+        f=0;
+        for(j=0;j<n;j++)
+        {
+            if(i==j)
+            continue;
+            if(a[i]==a[j])
+            {
+                f=1;
+            }
+            
+        }
+        if(f==0)
+        {
+            b[k]=a[i];
+            k++;
+        }
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    printf("The Unique Elements Found In Array Are: ");
+    for(i=0;i<k;i++)
+    printf("%d ",b[i]);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+
+
+
+		
+PS D:\vsCODEclg> gcc term1.c
+PS D:\vsCODEclg> ./a.exe
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In Array:5
+Input 5 Elemnts In Array
+element - 1 :1
+element - 2 :2
+element - 3 :3
+element - 4 :4
+element - 5 :5
+                **********OUTPUT**********
+The Unique Elements Found In Array Are: 1 2 3 4 5
+
+
+
+		
+PS D:\vsCODEclg> gcc term1.c
+PS D:\vsCODEclg> ./a.exe
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In Array:1
+Input 5 Elemnts In Array
+element - 1 :1
+                **********OUTPUT**********
+The Unique Elements Found In Array Are: 1 
+
+
+
+		
+PS D:\vsCODEclg> gcc term1.c
+PS D:\vsCODEclg> ./a.exe
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In Array:3
+Input 5 Elemnts In Array
+element - 1 :9
+element - 2 :9
+element - 3 :3
+                **********OUTPUT**********
+The Unique Elements Found In Array Are: 3 
+
+
+
+
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+ 2.  Write a program in C to separate odd and even integers into separate arrays. 
+*/
+
+#include <stdio.h>
+int main() 
+{
+    int a[100],b[100],c[100],i,n,j=0,k=0;
+    printf("\t\t**********INPUT**********\n");
+    printf("Input The Number Of Elements To Be Stored In The Array:");
+    scanf("%d",&n);
+    printf("Input %d Elements In The Array;\n",n);
+    for(i=0;i<n;i++)
+    {
+        printf("element - %d :",(i+1));
+        scanf("%d",&a[i]);
+    }
+    for(i=0;i<n;i++){
+        if(a[i]%2==0)
+        {
+            c[j]=a[i];
+            j++;
+        }
+        else
+        {
+            b[k]=a[i];
+            k++;
+        }
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    printf("The Even Elements Are : ");
+    for(i=0;i<j;i++){
+        printf("%d ",c[i]);
+    }
+    printf("\nThe Odd  Elements Are : ");
+    for(i=0;i<k;i++){
+        printf("%d ",b[i]);
+    }
+    return 0;
+}
+
+PS D:\vsCODEclg> gcc term2.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In The Array:7
+Input 7 Elements In The Array;
+element - 1 :2
+element - 2 :5
+element - 3 :3
+element - 4 :8
+element - 5 :9
+element - 6 :1
+element - 7 :0
+                **********OUTPUT**********
+The Even Elements Are : 2 8 0
+The Odd  Elements Are : 5 3 9 1
+
+
+
+PS D:\vsCODEclg> gcc term2.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In The Array:4
+Input 4 Elements In The Array;
+element - 1 :4
+element - 2 :3
+element - 3 :6
+element - 4 :1
+                **********OUTPUT**********
+The Even Elements Are : 4 6
+The Odd  Elements Are : 3 1
+
+
+
+PS D:\vsCODEclg> gcc term2.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Input The Number Of Elements To Be Stored In The Array:2
+Input 2 Elements In The Array;
+element - 1 :2
+element - 2 :9
+                **********OUTPUT**********
+The Even Elements Are : 2 
+The Odd  Elements Are : 9
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+ 3.  Write a program in C to find the sum of the lower triangular elements of a matrix.
+*/
+
+#include <stdio.h>
+int main() 
+{
+    int a[100][100],n,sum=0,i,j;
+    printf("\t\t**********INPUT**********\n");
+    printf("Enter The Size Of The Matrix\n");
+    scanf("%d",&n);
+    printf("Enter The Elements Of The Matrix\n");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    printf("The Elements Being Summed Of The Lower Triangular Matrix Are: ");
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            if(i>j)
+            {
+                printf("%d ",a[i][j]);
+                sum=sum+a[i][j];
+            }
+        }
+    }
+    printf("\nThe Sum Of The Lower Triangular Matrix Elements Are: %d",sum);
+    return 0;
+}
+     
+
+
+
+
+
+PS D:\vsCODEclg> gcc term3.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Enter The Size Of The Matrix
+3
+Enter The Elements Of The Matrix
+2 2 9
+1 4 3
+8 7 6
+                **********OUTPUT**********
+The Elements Being Summed Of The Lower Triangular Matrix Are: 1 8 7
+The Sum Of The Lower Triangular Matrix Elements Are: 16
+
+
+
+PS D:\vsCODEclg> gcc term3.c
+PS D:\vsCODEclg> ./a.exe
+                **********INPUT**********
+Enter The Size Of The Matrix
+4
+Enter The Elements Of The Matrix
+1 2 3 4 
+5 4 3 1
+9 8 7 6 
+0 9 4 3 
+                **********OUTPUT**********
+The Elements Being Summed Of The Lower Triangular Matrix Are: 5 9 8 0 9 4
+The Sum Of The Lower Triangular Matrix Elements Are: 35
+
+
+
+PS D:\vsCODEclg> gcc term3.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Enter The Size Of The Matrix
+2
+Enter The Elements Of The Matrix
+1 2 
+3 4
+                **********OUTPUT**********
+The Elements Being Summed Of The Lower Triangular Matrix Are: 3
+The Sum Of The Lower Triangular Matrix Elements Are: 3
+
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+4.  Write a program in C to find the max element of each row of a matrix.
+*/
+#include <stdio.h>
+int main() 
+{
+    int a[100][100],m,n,max=0,i,j;
+    printf("\t\t**********INPUT**********\n");
+    printf("Enter The Number Of Rows Of The Matrix : ");
+    scanf("%d",&m);
+    printf("Enter The Number Of Columns Of The Matrix : ");
+    scanf("%d",&n);
+    printf("Enter The Elements Of The Matrix\n");
+    for(i=0;i<m;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    printf("The Maximum Elements Of Each Row Are: ");
+    for(i=0;i<m;i++)
+    {
+        max=a[i][0];
+        for(j=0;j<n;j++)
+        {
+            if(a[i][j]>max)
+            {
+               max=a[i][j];
+            }
+        }
+        printf("%d ",max);
+    }
+    return 0;
+}
+
+
+
+
+
+PS D:\vsCODEclg> gcc term4.c
+PS D:\vsCODEclg> ./a.exe   
+                  **********INPUT**********
+Enter The Number Of Rows Of The Matrix : 4
+Enter The Number Of Columns Of The Matrix : 4
+Enter The Elements Of The Matrix
+1 2 3 4
+5 6 7 8
+1 2 8 9
+3 4 5 6 
+                  **********OUTPUT**********
+The Maximum Elements Of Each Row Are: 4 8 9 6
+
+
+
+PS D:\vsCODEclg> gcc term4.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter The Number Of Rows Of The Matrix: 3
+Enter The Number Of Columns Of The Matrix: 3
+Enter The Elements Of The Matrix:
+5 2 1
+7 3 8
+6 9 4
+     **********OUTPUT**********
+The Maximum Elements Of Each Row Are: 5 8 9
+
+
+
+PS D:\vsCODEclg> gcc term4.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter The Number Of Rows Of The Matrix: 2
+Enter The Number Of Columns Of The Matrix: 2
+Enter The Elements Of The Matrix:
+3 2
+1 4
+     **********OUTPUT**********
+The Maximum Elements Of Each Row Are: 3 4
+
+
+
+
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+5.  Write a program in C to split string by space into words. 
+*/
+#include <stdio.h>
+#include<string.h>
+int main() 
+{
+    char str[200];
+    int i=0,l;
+    printf("\t\t**********INPUT**********\n");
+    printf("Enter A String\n");
+    fgets(str,200,stdin);
+    l=strlen(str);
+    str[l-1]='\0';
+    printf("\t\t**********OUTPUT**********\n");
+    printf("Strings or Words After Split By Space Are :\n");
+    while(str[i]!='\0')
+    {
+        if(str[i]==' '&&str[i+1]!=' ')
+        {
+            printf("\n");
+        }
+        else
+        {
+            printf("%c",str[i]);
+        }
+        i++;
+    }
+}
+ 
+  
+PS D:\vsCODEclg> gcc term5.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter A String
+This is a test string.
+     **********OUTPUT**********
+Strings or Words After Split By Space Are :
+This
+is
+a
+test
+string.
+
+
+
+PS D:\vsCODEclg> gcc term5.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter A String
+graphic era deemed to be university
+		**********OUTPUT**********
+Strings or Words After Split By Space Are :
+graphic
+era
+deemed
+to
+be
+university
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS D:\vsCODEclg> gcc term5.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter A String
+my name is annant
+		**********OUTPUT**********
+Strings or Words After Split By Space Are :
+my
+name
+is
+annant
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+6.  Write a user define function to find the highest frequency character in a string. 
+*/
+
+#include <stdio.h>
+void freq(char *);
+int main() 
+{
+    char str[200];
+    printf("\t\t**********INPUT**********\n");
+    printf("Enter The String\n");
+    fgets(str,200,stdin);
+    freq(str);
+
+    return 0;
+}
+void freq(char *str)
+{
+    int i=0,max=0,c=0,j=0;
+    char ch;
+    while(str[i]!='\0')
+    {
+        c=0;
+        while(str[j]!='\0')
+        {
+            if(str[i]==str[j])
+            {
+                c++;
+            }
+            j++;
+        }
+        j=0;
+         if(c>max)
+        {
+            max=c;
+            ch=str[i];
+        }
+        i++;
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    printf("Highest Frequency Character Appearing In The String Is %c",ch);
+    return ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS D:\vsCODEclg> gcc term6.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter The String
+Which character appears the most
+		**********OUTPUT**********
+Highest Frequency Character Appearing In The String Is h
+
+
+
+PS D:\vsCODEclg> gcc term6.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter The String
+Welcome To Graphic era
+		**********OUTPUT**********
+Highest Frequency Character Appearing In The String Is e
+
+
+
+PS D:\vsCODEclg> gcc term6.c
+PS D:\vsCODEclg> ./a.exe   
+     **********INPUT**********
+Enter The String
+1223334444
+		**********OUTPUT**********
+Highest Frequency Character Appearing In The String Is 4
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+     NAME 				          : ANNANT PARASHAR
+     UNIVERSITY ROLL NO  	          : 2023998
+     SECTION.                       		          : I
+
+7.  Write a program to remove characters from a string except alphabets. 
+*/
+#include <stdio.h>
+int main() 
+{
+    char str[200];
+    int i=0,j;
+    printf("\t\t**********INPUT**********\n");
+    printf("Enter A String\n");
+    fgets(str,200,stdin);
+    while(str[i]!='\0')
+    {
+        if((str[i]>='A'&&str[i]<='Z')||(str[i]>='a'&&str[i]<='z'))
+        {
+            i++;
+        }
+        else
+        {
+            j=i;
+            while(str[j]!='\0')
+            {
+                str[j]=str[j+1];
+                j++;
+            }
+        }
+    }
+    printf("\t\t**********OUTPUT**********\n");
+    puts(str);
+    return 0;
+}
+PS D:\vsCODEclg> gcc term7.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Enter A String
+annantparashar2005@gmail.com
+                **********OUTPUT**********
+annantparashargmailcom
+
+
+
+PS D:\vsCODEclg> gcc term7.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Enter A String
+46h5el26$l%#@17o
+                **********OUTPUT**********
+hello
+
+
+
+PS D:\vsCODEclg> gcc term7.c
+PS D:\vsCODEclg> ./a.exe   
+                **********INPUT**********
+Enter A String
+this is a test string
+                **********OUTPUT**********
+thisisateststring
+
+
